@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALPHA - Anganwadi Live Platform</title>
+    <style>
+        .buffering-arrow {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            border: 0.2em solid currentColor;
+            border-right-color: transparent;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+
+        #welcome-message {
+            text-align: center;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 10px;
+            width: 150px;
+        }
+
+        .login-button {
+            background-color: #007BFF;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; height: 100vh; display: flex; justify-content: center; align-items: center; background-color: #f4f4f4;">
+    <div id="app" style="width: 100%; max-width: 600px; padding: 20px; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); background-color: white; text-align: center;">
+        <div id="welcome-message">
+            <img src="../image1/k_1.png" alt="Karnataka State Logo" style="width: 100px; height: auto; margin-bottom: 20px;">
+            <h1 style="margin: 0 0 20px; font-size: 24px;">GOVERNMENT OF KARNATAKA</h1>
+            <p style="margin: 0 0 20px; font-size: 18px;">Department of Child Development</p>
+            <img src="../image1/anganwadi.jpg " alt="Department Logo" style="width: 100px; height: auto; margin-bottom: 20px;">
+            <br>
+            <div class="button-container">
+                <button onclick="redirectToOfficialWebsite()" class="button">ಅಧಿಕೃತ ವೆಬ್‌ಸೈಟ್</button>
+                <button onclick="redirectToLoginPage()" class="button login-button">ಆಂಗನವಾಡಿ ಲಾಗಿನ್</button>
+            </div>
+        </div>
+
+        <script>
+            function redirectToOfficialWebsite() {
+                window.location.href = "https://dwcd.karnataka.gov.in";
+            }
+
+            function redirectToLoginPage() {
+                window.location.href = "index.html";
+            }
+        </script>
+    </div>
+</body>
+</html>
+

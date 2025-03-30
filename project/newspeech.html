@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANGANWADI</title>
+
+    <style>
+        #startButton {
+            font-size: 18px;
+            padding: 10px 20px;
+            border: 1px solid #333;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            color: #333;
+            border-radius: 5px;
+        }
+        #startButton:focus {
+            outline: none;
+        }
+        #status {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Voice Command Demo</h1>
+<p id="status">Press the button and say a command...</p>
+
+<!-- Simple button instead of icon -->
+<button id="startButton">Start Listening</button>
+
+<p id="result">Result will appear here...</p>
+
+<script>
+// Check if the browser supports the Web Speech API
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const synth = window.speechSynthesis; // Initialize speech synthesis
+
+if (SpeechRecognition) {
+    // Initialize speech recognition
+    const recognition = new SpeechRecognition();
+    recognition.lang = 'en-US'; // Set language
+    recognition.continuous = false; // Listen for one command at a time
+
+    // Function to speak out text
+    const speak = (message) => {
+        const utterance = new SpeechSynthesisUtterance(message);
+        synth.speak(utterance);
+    };
+
+    // Start listening when the button is clicked
+    document.getElementById('startButton').addEventListener('click', () => {
+        recognition.start();
+    });
+
+    // When recognition starts
+    recognition.onstart = () => {
+        document.getElementById('status').textContent = "Listening...";
+    };
+
+    // When recognition results are returned
+    recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript.toLowerCase();
+        document.getElementById('result').textContent = `You said: ${transcript}`;
+
+        // Handle different commands with voice response
+        if (transcript.includes("hello")) {
+            speak("Hello to you too!");
+        } else if (transcript.includes("open google")) {
+            speak("Opening Google.");
+            window.open("https://www.google.com", "_blank");
+        } 
+        else if (transcript.includes("open instagram")) {
+            speak("Opening Instagram.");
+            window.open("https://www.instagram.com/", "_blank");
+        }
+        else if (command.includes("open dashboard")){
+            speak("Opening Dashboard");
+            window.open("http://localhost/ANGANWADI/project/dashboard.php", "_blank");
+        }
+        else if (command.includes("open events")){
+            speak("Opening Upcoming Events");
+            window.open("http://localhost/ANGANWADI/project/events.php", "_blank");
+        }
+        else if (command.includes("open updates")){
+            speak("Opening Required Updates");
+            window.open("http://localhost/ANGANWADI/project/required_updates.html", "_blank");
+        }
+        else if (commmand.includes("view schemes")){
+            speak("Opening Schemes");
+            window.open("http://localhost/ANGANWADI/project/icds_schemes.html", "_blank");
+        }
+        else if (command.includes("submit progress reports")){
+            speak("Showing Prgress Reports");
+            window.open("http://localhost/ANGANWADI/project/submit_reports.php", "_blank");
+        }
+        else if (command.includes("show resources")){
+            speak("Showing Resources");
+            window.open("http://localhost/ANGANWADI/project/resources.html", "_blank");
+        }
+        else if (command.includes("open attendance records")){
+            speak("Showing Attendance Records");
+            window.open("http://localhost/ANGANWADI/project/attendance_records.php", "_blank");
+        }
+        else if (command.includes("open health records")){
+            speak("Showing Health Records");
+            window.open("http://localhost/ANGANWADI/project/update_child_health_records.php", "_blank");
+        }
+        else if (command.includes("open immunization")){
+            speak("Showing Schedule Immunizarion");
+            window.open("http://localhost/ANGANWADI/project/schedule_immunizations.php", "_blank");
+        }
+        else if (command.includes("open nutrition")){
+            speak("Showing Nutrition Status");
+            window.open("http://localhost/ANGANWADI/project/nutrition_status.php", "_blank");
+        }
+        else if (command.includes("open biometric")){
+            speak("Showing Biometric");
+            window.open("http://localhost/ANGANWADI/project/biometric_scans.html", "_blank");
+        }
+        else if (command.includes("open id")){
+            speak("Showing ID's");
+            window.open("http://localhost/ANGANWADI/project/verify_ids.html", "_blank");
+        }
+        else if (command.includes("open attendance")){
+            speak("Showing Attendance Reports");
+            window.open("http://localhost/ANGANWADI/project/attendance_reports.php", "_blank");
+        }
+        else if (command.includes("open heath data")){
+            speak("Showing Health Data");
+            window.open("http://localhost/ANGANWADI/project/add_health_data.html", "_blank");
+        }
+        else if (command.includes("open progress")){
+            speak("Showing Scheme Progress");
+            window.open("http://localhost/ANGANWADI/project/scheme_progress.php", "_blank");
+        }
+        else if (command.includes("open progress")){
+            speak("Showing Scheme Progress");
+            window.open("http://localhost/ANGANWADI/project/scheme_progress.php", "_blank");
+        }
+
+        else if (command.includes("open updates")){
+            speak("Showing Required Updates");
+            window.open("http://localhost/ANGANWADI/project/required_updates.html", "_blank");
+        }
+
+        else if (command.includes("open events")){
+            speak("Showing Upcomig Events");
+            window.open("http://localhost/ANGANWADI/project/events.php", "_blank");
+        }
+
+        else if (transcript.includes("open health alert")){
+            speak("Showing Health Alerts");
+            window.open("http://localhost/ANGANWADI/project/schedule_health_alert.php", "_blank");
+        }
+        else if (transcript.includes("open profile")){
+            speak("Showing Update Profile");
+            window.open("http://localhost/ANGANWADI/project/update_profile.html", "_blank");
+        }
+        else if (transcript.includes("open help and support")){
+            speak("Showing Help and Support");
+            window.open("http://localhost/ANGANWADI/project/help_support.html", "_blank");
+        }
+        else if (transcript.includes("open reports")){
+            speak("Showing Stored Health Reports");
+            window.open("http://localhost/ANGANWADI/project/stored_health_records.php", "_blank");
+        }
+        else if (transcript.includes("change color")) {
+            speak("Changing the background color.");
+            document.body.style.backgroundColor = "lightblue";
+        } else {
+            speak("Command not recognized.");
+        }
+    };
+
+    // Handle recognition errors
+    recognition.onerror = (event) => {
+        document.getElementById('status').textContent = "Error occurred: " + event.error;
+    };
+
+    // Stop recognition when finished
+    recognition.onend = () => {
+        document.getElementById('status').textContent = "Press the button and say a command...";
+    };
+
+} else {
+    alert("Speech Recognition is not supported in this browser.");
+}
+
+</script>
+</body>
+</html>

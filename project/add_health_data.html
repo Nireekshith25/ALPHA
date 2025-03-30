@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Health Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #4a148c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            background-color: #4a148c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #6a1b9a;
+        }
+        .section-title {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #4a148c;
+        }
+        .back-button {
+            margin-bottom: 20px;
+        }
+        .back-button a {
+            background-color: #4a148c;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .view-statistics-button {
+            margin-top: 20px;
+        }
+        .view-statistics-button a {
+            background-color: #4a148c;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .message {
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            color: white;
+            display: none;
+        }
+        .success {
+            background-color: #4caf50;
+        }
+        .error {
+            background-color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Add Health Data</h1>
+    </div>
+    <div class="container">
+        <div class="back-button">
+            <a href="index.html">Back to Main Page</a>
+        </div>
+        
+        <!-- Message Box -->
+        <div id="message-box" class="message"></div>
+
+        <div class="section-title">Add Growth Metrics</div>
+        <form id="growth-metrics-form" action="process_health_data.php" method="POST">
+            <div class="form-group">
+                <label for="student_id">Student ID</label>
+                <input type="number" id="student_id" name="student_id" required>
+            </div>
+            <div class="form-group">
+                <label for="measurement_date">Measurement Date</label>
+                <input type="date" id="measurement_date" name="measurement_date" required>
+            </div>
+            <div class="form-group">
+                <label for="weight">Weight</label>
+                <input type="number" step="0.01" id="weight" name="weight" required>
+            </div>
+            <div class="form-group">
+                <label for="height">Height</label>
+                <input type="number" step="0.01" id="height" name="height" required>
+            </div>
+            <div class="form-group">
+                <label for="growth_percentile">Growth Percentile</label>
+                <input type="text" id="growth_percentile" name="growth_percentile" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" name="submit_growth_metrics">Add Growth Metrics</button>
+            </div>
+        </form>
+
+        <div class="section-title">Add Immunization Records</div>
+        <form id="immunization-records-form" action="process_health_data.php" method="POST">
+            <div class="form-group">
+                <label for="student_id">Student ID</label>
+                <input type="number" id="student_id" name="student_id" required>
+            </div>
+            <div class="form-group">
+                <label for="vaccine_name">Vaccine Name</label>
+                <input type="text" id="vaccine_name" name="vaccine_name" required>
+            </div>
+            <div class="form-group">
+                <label for="vaccination_date">Vaccination Date</label>
+                <input type="date" id="vaccination_date" name="vaccination_date" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" name="submit_immunization_records">Add Immunization Record</button>
+            </div>
+        </form>
+
+        <div class="section-title">Add Health Check-ups</div>
+        <form id="health-checkups-form" action="process_health_data.php" method="POST">
+            <div class="form-group">
+                <label for="student_id">Student ID</label>
+                <input type="number" id="student_id" name="student_id" required>
+            </div>
+            <div class="form-group">
+                <label for="checkup_date">Check-up Date</label>
+                <input type="date" id="checkup_date" name="checkup_date" required>
+            </div>
+            <div class="form-group">
+                <label for="findings">Findings</label>
+                <textarea id="findings" name="findings" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="referrals">Referrals</label>
+                <textarea id="referrals" name="referrals"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" name="submit_health_checkups">Add Health Check-up</button>
+            </div>
+        </form>
+
+        <div class="section-title">Add Nutritional Status</div>
+        <form id="nutrition-status-form" action="process_health_data.php" method="POST">
+            <div class="form-group">
+                <label for="student_id">Student ID</label>
+                <input type="number" id="student_id" name="student_id" required>
+            </div>
+            <div class="form-group">
+                <label for="assessment_date">Assessment Date</label>
+                <input type="date" id="assessment_date" name="assessment_date" required>
+            </div>
+            <div class="form-group">
+                <label for="dietary_intake">Dietary Intake</label>
+                <textarea id="dietary_intake" name="dietary_intake" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="supplements_provided">Supplements Provided</label>
+                <textarea id="supplements_provided" name="supplements_provided"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="anemia_prevalence">Anemia Prevalence</label>
+                <select id="anemia_prevalence" name="anemia_prevalence" required>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit" name="submit_nutrition_status">Add Nutritional Status</button>
+            </div>
+        </form>
+
+        <div class="section-title">Add Disease Incidence</div>
+        <form id="disease-incidence-form" action="process_health_data.php" method="POST">
+            <div class="form-group">
+                <label for="student_id">Student ID</label>
+                <input type="number" id="student_id" name="student_id" required>
+            </div>
+            <div class="form-group">
+                <label for="disease_name">Disease Name</label>
+                <input type="text" id="disease_name" name="disease_name" required>
+            </div>
+            <div class="form-group">
+                <label for="occurrence_date">Occurrence Date</label>
+                <input type="date" id="occurrence_date" name="occurrence_date" required>
+            </div>
+            <div class="form-group">
+                <label for="preventive_measures">Preventive Measures</label>
+                <textarea id="preventive_measures" name="preventive_measures" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" name="submit_disease_incidence">Add Disease Incidence</button>
+            </div>
+        </form>
+
+        <div class="section-title">Add Maternal Health</div>
+        <form id="maternal-health-form" action="process_health_data.php" method="POST">
+            <div class="form-group">
+                <label for="mother_id">Mother ID</label>
+                <input type="number" id="mother_id" name="mother_id" required>
+            </div>
+            <div class="form-group">
+                <label for="health_status">Health Status</label>
+                <textarea id="health_status" name="health_status" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="antenatal_visits">Antenatal Visits</label>
+                <input type="number" id="antenatal_visits" name="antenatal_visits" required>
+            </div>
+            <div class="form-group">
+                <label for="postnatal_visits">Postnatal Visits</label>
+                <input type="number" id="postnatal_visits" name="postnatal_visits" required>
+            </div>
+            <div class="form-group">
+                <label for="nutrition_education">Nutrition Education</label>
+                <textarea id="nutrition_education" name="nutrition_education" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" name="submit_maternal_health">Add Maternal Health</button>
+            </div>
+        </form>
+
+        <div class="section-title">Add Sanitation and Hygiene</div>
+        <form id="sanitation-hygiene-form" action="process_health_data.php" method="POST">
+            <div class="form-group">
+                <label for="center_id">Center ID</label>
+                <input type="number" id="center_id" name="center_id" required>
+            </div>
+            <div class="form-group">
+                <label for="clean_drinking_water">Clean Drinking Water</label>
+                <select id="clean_drinking_water" name="clean_drinking_water" required>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="sanitation_facilities">Sanitation Facilities</label>
+                <select id="sanitation_facilities" name="sanitation_facilities" required>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="hygiene_education">Hygiene Education</label>
+                <textarea id="hygiene_education" name="hygiene_education" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" name="submit_sanitation_hygiene">Add Sanitation and Hygiene</button>
+            </div>
+        </form>
+
+        <div class="section-title">Add Health Alert</div>
+        <form id="health-alert-form" action="process_health_data.php" method="POST">
+            <div class="form-group">
+                <label for="title">Alert Title</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Alert Description</label>
+                <textarea id="description" name="description" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="alert_date">Alert Date</label>
+                <input type="date" id="alert_date" name="alert_date" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" name="submit_health_alert">Add Health Alert</button>
+            </div>
+        </form>
+
+        <div class="view-statistics-button">
+            <a href="health_statistics.html">View Health Statistics</a>
+        </div>
+    </div>
+    <script>
+        // Function to display messages
+        function showMessage(message, type) {
+            const messageBox = document.getElementById('message-box');
+            messageBox.textContent = message;
+            messageBox.className = `message ${type}`;
+            messageBox.style.display = 'block';
+        }
+
+        // Handle form submission
+        document.addEventListener('DOMContentLoaded', function () {
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.addEventListener('submit', function (event) {
+                    event.preventDefault();
+                    const formData = new FormData(form);
+                    fetch(form.action, {
+                        method: form.method,
+                        body: formData
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        if (data.includes('successfully')) {
+                            showMessage(data, 'success');
+                        } else {
+                            showMessage(data, 'error');
+                        }
+                    })
+                    .catch(error => {
+                        showMessage('An error occurred while processing your request.', 'error');
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

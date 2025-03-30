@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help and Support</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-color: #4a148c;
+            color: white;
+            position: relative;
+        }
+        .header img {
+            height: 50px;
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .content {
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #4a148c;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #4a148c;
+            color: white;
+        }
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 20px;
+            cursor: pointer;
+            color: white;
+        }
+        .language-toggle {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+        .language-toggle button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .support-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .support-link a {
+            color: #4a148c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function toggleLanguage(lang) {
+            if (lang === 'kannada') {
+                document.getElementById('english-content').style.display = 'none';
+                document.getElementById('kannada-content').style.display = 'block';
+            } else {
+                document.getElementById('english-content').style.display = 'block';
+                document.getElementById('kannada-content').style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="../image1/k_1.png" alt="Karnataka Logo">
+            <h1>Help and Support</h1>
+            <div class="close-button" onclick="window.close();">X</div>
+        </div>
+        <div class="content">
+            <div class="language-toggle">
+                <button onclick="toggleLanguage('english')">English</button>
+                <button onclick="toggleLanguage('kannada')">ಕನ್ನಡ</button>
+            </div>
+            <div id="english-content">
+                <h2>INFORMATION SEARCH:</h2>
+                <p>To help users access information within the website, a "search here" option is been provided. Here, the option to type in Kannada is made available. While searching, usage of Unicode font is compulsory. Option to search in English is also provided.</p>
+                <p>INTERNET ACCESSIBILITY</p>
+                <p>If the internet is slow or unavailable, there may be a modification in website design or some subpages may not open.</p>
+                <h3>Help of Various File Formats:</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Document Type</th>
+                            <th>Download</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>PDF content</td>
+                            <td><a href="https://get.adobe.com/reader/" target="_blank">Adobe Acrobat Reader (External website that opens in a new window)</a></td>
+                        </tr>
+                        <tr>
+                            <td>Word files</td>
+                            <td>
+                                <a href="https://www.microsoft.com/en-us/download/details.aspx?id=4" target="_blank">Word Viewer (in any version till 2003) - External website that opens in a new window</a><br>
+                                <a href="https://www.microsoft.com/en-us/download/details.aspx?id=24" target="_blank">Microsoft Office Compatibility Pack for Word (for 2007 version) - External website that opens in a new window</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Excel files</td>
+                            <td>
+                                <a href="https://www.microsoft.com/en-us/download/details.aspx?id=10" target="_blank">Excel Viewer 2003 (in any version till 2003) - External website that opens in a new window</a><br>
+                                <a href="https://www.microsoft.com/en-us/download/details.aspx?id=3" target="_blank">Microsoft Office Compatibility Pack for Excel (for 2007 version) - External website that opens in a new window</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PowerPoint presentations</td>
+                            <td>
+                                <a href="https://www.microsoft.com/en-us/download/details.aspx?id=6" target="_blank">PowerPoint Viewer 2003 (in any version till 2003) - External website that opens in a new window</a><br>
+                                <a href="https://www.microsoft.com/en-us/download/details.aspx?id=13" target="_blank">Microsoft Office Compatibility Pack for PowerPoint (for 2007 version) - External website that opens in a new window</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Flash content</td>
+                            <td><a href="https://get.adobe.com/flashplayer/" target="_blank">Adobe Flash Player (External website that opens in a new window)</a></td>
+                        </tr>
+                        <tr>
+                            <td>Audio Files</td>
+                            <td><a href="https://www.microsoft.com/en-us/download/details.aspx?id=14" target="_blank">Windows Media Player (External website that opens in a new window)</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>ICDS Schemes and Child Development</h3>
+                <p>The Integrated Child Development Services (ICDS) Scheme offers a package of six services, viz. supplementary nutrition, pre-school non-formal education, nutrition & health education, immunization, health check-up, and referral services. These services are provided to children below 6 years of age and pregnant and lactating mothers.</p>
+                <p>For more details, visit the official ICDS website: <a href="https://icds.karnataka.gov.in" target="_blank">icds.karnataka.gov.in</a></p>
+            </div>
+            <div id="kannada-content" style="display: none;">
+                <h2>ಮಾಹಿತಿ ಶೋಧನೆ:</h2>
+                <p>ಜಾಲತಾಣದ ಒಳಗಿನಲ್ಲಿ ಮಾಹಿತಿಯನ್ನು ಪ್ರವೇಶಿಸಲು ಬಳಕೆದಾರರಿಗೆ ಸಹಾಯ ಮಾಡಲು, "ಇಲ್ಲಿ ಶೋಧಿಸು" ಎಂಬ ಆಯ್ಕೆಯನ್ನು ನೀಡಲಾಗಿದೆ. ಇಲ್ಲಿ, ಕನ್ನಡದಲ್ಲಿ ಟೈಪ್ ಮಾಡುವ ಆಯ್ಕೆಯನ್ನು ಲಭ್ಯವಿರಿಸಲಾಗಿದೆ. ಹುಡುಕುವಾಗ, ಯುನಿಕೋಡ್ ಫಾಂಟ್ ಬಳಕೆ ಕಡ್ಡಾಯವಾಗಿದೆ. ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ ಹುಡುಕುವ ಆಯ್ಕೆಯೂ ಲಭ್ಯವಿದೆ.</p>
+                <p>ಇಂಟರ್ನೆಟ್ ಲಭ್ಯತೆ</p>
+                <p>ಇಂಟರ್ನೆಟ್ ನಿಧಾನವಾಗಿ ಅಥವಾ ಲಭ್ಯವಿಲ್ಲದಿದ್ದರೆ, ಜಾಲತಾಣದ ವಿನ್ಯಾಸದಲ್ಲಿ ಬದಲಾವಣೆ ಅಥವಾ ಕೆಲವು ಉಪಪುಟಗಳು ತೆರೆಯದೇ ಇರಬಹುದು.</p>
+                <h3>ವಿವಿಧ ಫೈಲ್ ಸ್ವರೂಪಗಳ ಸಹಾಯ:</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ದಾಖಲೆ ಪ್ರಕಾರ</th>
+                            <th>ಡೌನ್‌ಲೋಡ್</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>PDF ವಿಷಯ</td>
+                            <td><a href="https://get.adobe.com/reader/" target="_blank">ಅಡೋಬ್ ಅಕ್ರೋಬಟ್ ರೀಡರ್ (ಹೊಸ ಕಿಟಕಿ ಓಪನ್ ಆಗುವ ಬಾಹ್ಯ ಜಾಲತಾಣ)</a></td>
+                        </tr>
+                        <tr>
+                            <td>Word ಫೈಲ್‌ಗಳು</td>
+                            <td>
+                                <a href="https://www.microsoft.com/en-us/download/details.aspx?id=4" target="_blank">Word ವೀಕ್ಷಕ (2003ರ ಯಾವುದೇ ಆವೃತ್ತಿಯವರೆಗೆ) - ಹೊಸ ಕಿಟಕಿ ಓಪನ್ ಆಗುವ ಬಾಹ್ಯ ಜಾಲತಾಣ</a><br>
+                                <a href="https://www.microsoft.com/en-us/download/details.aspx?id=24" target="_blank">Microsoft Office ಅನುರೂಪತಾ ಪ್ಯಾಕ್ for Word (2007 ಆವೃತ್ತಿಗಾಗಿ) - ಹೊಸ ಕಿಟಕಿ ಓಪನ್ ಆಗುವ ಬಾಹ್ಯ ಜಾಲತಾಣ</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Excel ಫೈಲ್‌ಗಳು</td>
+                            <td>
+                                <a href="https://www.microsoft.com/en-us/download/details.aspx?id=10" target="_blank">Excel ವೀಕ್ಷಕ 2003 (2003ರ ಯಾವುದೇ ಆವೃತ್ತಿಯವರೆಗೆ) - ಹೊಸ ಕಿಟಕಿ ಓಪನ್ ಆಗುವ ಬಾಹ್ಯ ಜಾಲತಾಣ</a><br>
+                                <a href="https://www.microsoft.com/en-us/download/details.aspx?id=3" target="_blank">Microsoft Office ಅನುರೂಪತಾ ಪ್ಯಾಕ್ for Excel (2007 ಆವೃತ್ತಿಗಾಗಿ) - ಹೊಸ ಕಿಟಕಿ ಓಪನ್ ಆಗುವ ಬಾಹ್ಯ ಜಾಲತಾಣ</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PowerPoint ಪ್ರಸ್ತುತಿ</td>
+                            <td>
+                                <a href="https://www.microsoft.com/en-us/download/details.aspx?id=6" target="_blank">PowerPoint ವೀಕ್ಷಕ 2003 (2003ರ ಯಾವುದೇ ಆವೃತ್ತಿಯವರೆಗೆ) - ಹೊಸ ಕಿಟಕಿ ಓಪನ್ ಆಗುವ ಬಾಹ್ಯ ಜಾಲತಾಣ</a><br>
+                                <a href="https://www.microsoft.com/en-us/download/details.aspx?id=13" target="_blank">Microsoft Office ಅನುರೂಪತಾ ಪ್ಯಾಕ್ for PowerPoint (2007 ಆವೃತ್ತಿಗಾಗಿ) - ಹೊಸ ಕಿಟಕಿ ಓಪನ್ ಆಗುವ ಬಾಹ್ಯ ಜಾಲತಾಣ</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Flash ವಿಷಯ</td>
+                            <td><a href="https://get.adobe.com/flashplayer/" target="_blank">ಅಡೋಬ್ ಫ್ಲಾಶ್ ಪ್ಲೇಯರ್ (ಹೊಸ ಕಿಟಕಿ ಓಪನ್ ಆಗುವ ಬಾಹ್ಯ ಜಾಲತಾಣ)</a></td>
+                        </tr>
+                        <tr>
+                            <td>ಆಡಿಯೋ ಫೈಲ್‌ಗಳು</td>
+                            <td><a href="https://www.microsoft.com/en-us/download/details.aspx?id=14" target="_blank">Windows ಮೀಡಿಯಾ ಪ್ಲೇಯರ್ (ಹೊಸ ಕಿಟಕಿ ಓಪನ್ ಆಗುವ ಬಾಹ್ಯ ಜಾಲತಾಣ)</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>ICDS ಯೋಜನೆಗಳು ಮತ್ತು ಮಕ್ಕಳ ಅಭಿವೃದ್ಧಿ</h3>
+                <p>ಎಲ್ಲಾ ICDS ಯೋಜನೆಗಳು ಮತ್ತು ಮಕ್ಕಳ ಅಭಿವೃದ್ಧಿ ಸೇವೆಗಳು ಅರ್ಹತೆಯ ಆಧಾರದ ಮೇಲೆ ಹದಿಹರೆಯದ ಹೆಣ್ಣುಮಕ್ಕಳಿಗೆ ಮತ್ತು ತಾಯಿ ಹಾಗೂ ಹೆಣ್ಣುಮಕ್ಕಳಿಗೆ ಕಲ್ಪಿಸಲಾಗುತ್ತದೆ.</p>
+                <p>ಹೆಚ್ಚಿನ ವಿವರಗಳಿಗಾಗಿ, ಅಧಿಕೃತ ICDS ಜಾಲತಾಣಕ್ಕೆ ಭೇಟಿ ನೀಡಿ: <a href="https://icds.karnataka.gov.in" target="_blank">icds.karnataka.gov.in</a></p>
+            </div>
+            <div class="support-link">
+                <p>For more details, visit the official ICDS website: <a href="https://icds.karnataka.gov.in" target="_blank">icds.karnataka.gov.in</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

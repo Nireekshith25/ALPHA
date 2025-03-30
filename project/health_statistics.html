@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Statistics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #4a148c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .back-button {
+            margin-bottom: 20px;
+        }
+        .back-button a {
+            background-color: #4a148c;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .statistics-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .statistics-table th, .statistics-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .statistics-table th {
+            background-color: #f4f4f4;
+        }
+        .section-title {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #4a148c;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Health Statistics</h1>
+    </div>
+    <div class="container">
+        <div class="back-button">
+            <a href="index.html">Back to Main Page</a>
+        </div>
+        <div id="statistics-container">
+            <!-- Health statistics will be loaded here -->
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('fetch_health_statistics.php')
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);  // Add this line to check the received data
+                    const container = document.getElementById('statistics-container');
+
+                    // Display Growth Metrics
+                    let section = document.createElement('div');
+                    section.innerHTML = '<div class="section-title">Child Growth and Development Metrics</div>';
+                    let table = createTable(['Student ID', 'Measurement Date', 'Weight', 'Height', 'Growth Percentile'], data.growth_metrics);
+                    section.appendChild(table);
+                    container.appendChild(section);
+
+                    // Display Immunization Records
+                    section = document.createElement('div');
+                    section.innerHTML = '<div class="section-title">Immunization Records</div>';
+                    table = createTable(['Student ID', 'Vaccine Name', 'Vaccination Date'], data.immunization_records);
+                    section.appendChild(table);
+                    container.appendChild(section);
+
+                    // Display Health Check-ups
+                    section = document.createElement('div');
+                    section.innerHTML = '<div class="section-title">Health Check-ups</div>';
+                    table = createTable(['Student ID', 'Check-up Date', 'Findings', 'Referrals'], data.health_checkups);
+                    section.appendChild(table);
+                    container.appendChild(section);
+
+                    // Display Nutritional Status
+                    section = document.createElement('div');
+                    section.innerHTML = '<div class="section-title">Nutritional Status</div>';
+                    table = createTable(['Student ID', 'Assessment Date', 'Dietary Intake', 'Supplements Provided', 'Anemia Prevalence'], data.nutrition_status);
+                    section.appendChild(table);
+                    container.appendChild(section);
+
+                    // Display Disease Incidence
+                    section = document.createElement('div');
+                    section.innerHTML = '<div class="section-title">Disease Incidence and Outbreaks</div>';
+                    table = createTable(['Student ID', 'Disease Name', 'Occurrence Date', 'Preventive Measures'], data.disease_incidence);
+                    section.appendChild(table);
+                    container.appendChild(section);
+
+                    // Display Maternal Health
+                    section = document.createElement('div');
+                    section.innerHTML = '<div class="section-title">Maternal Health</div>';
+                    table = createTable(['Mother ID', 'Health Status', 'Antenatal Visits', 'Postnatal Visits', 'Nutrition Education'], data.maternal_health);
+                    section.appendChild(table);
+                    container.appendChild(section);
+
+                    // Display Sanitation and Hygiene
+                    section = document.createElement('div');
+                    section.innerHTML = '<div class="section-title">Sanitation and Hygiene</div>';
+                    table = createTable(['Center ID', 'Clean Drinking Water', 'Sanitation Facilities', 'Hygiene Education'], data.sanitation_hygiene);
+                    section.appendChild(table);
+                    container.appendChild(section);
+                });
+
+            function createTable(headers, data) {
+                const table = document.createElement('table');
+                table.className = 'statistics-table';
+
+                const thead = document.createElement('thead');
+                const headerRow = document.createElement('tr');
+                headers.forEach(header => {
+                    const th = document.createElement('th');
+                    th.textContent = header;
+                    headerRow.appendChild(th);
+                });
+                thead.appendChild(headerRow);
+                table.appendChild(thead);
+
+                const tbody = document.createElement('tbody');
+                data.forEach(row => {
+                    const tr = document.createElement('tr');
+                    headers.forEach(header => {
+                        const td = document.createElement('td');
+                        td.textContent = row[header.toLowerCase().replace(/ /g, '_')];
+                        tr.appendChild(td);
+                    });
+                    tbody.appendChild(tr);
+                });
+                table.appendChild(tbody);
+
+                return table;
+            }
+        });
+    </script>
+</body>
+</html>

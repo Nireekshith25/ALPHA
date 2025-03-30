@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health & Nutrition - Department of Women and Child Development</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #4a148c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .header img {
+            width: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .header h1 {
+            margin: 10px 0;
+        }
+
+        /* Main Content Styling */
+        .main-content {
+            padding: 40px;
+            text-align: center;
+        }
+        .main-content h2 {
+            color: #6200ea;
+            margin-bottom: 20px;
+        }
+        .main-content p {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        /* Footer Styling */
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Language Toggle Button */
+        .lang-btn {
+            cursor: pointer;
+            background-color: #6200ea;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <img src="../image1/k_1.png" alt="Karnataka Government Logo">
+        <h1 id="title">Department of Women and Child Development</h1>
+        <p id="subtitle">Government of Karnataka</p>
+    </div>
+
+    <!-- Language Toggle Button -->
+    <button class="lang-btn" onclick="toggleLanguage()">ಕನ್ನಡ / English</button>
+
+    <!-- Main Content Section -->
+    <div class="main-content">
+        <h2 id="page-title">Health & Nutrition</h2>
+        <p id="intro-text">Learn about nutritional plans and health initiatives for pregnant women and children.</p>
+
+        <!-- Detailed Information on Health & Nutrition -->
+        <h3 id="overview-title">Overview</h3>
+        <p id="overview-text">Our mission is to ensure the health and nutrition of pregnant women and children through various government programs and initiatives.</p>
+
+        <h3 id="pregnant-plans-title">Health Plans for Pregnant Women</h3>
+        <ul id="pregnant-plans-list">
+            <li>Iron and Folic Acid Supplementation</li>
+            <li>Regular Health Checkups</li>
+            <li>Maternal Health Education</li>
+        </ul>
+
+        <h3 id="children-plans-title">Nutrition Plans for Children</h3>
+        <ul id="children-plans-list">
+            <li>Balanced Diet for Child Growth</li>
+            <li>Immunization and Health Tracking</li>
+            <li>Exclusive Breastfeeding Awareness</li>
+        </ul>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        © 2024 Department of Child Development, Karnataka
+    </div>
+
+    <script>
+        function toggleLanguage() {
+            const langBtn = document.querySelector('.lang-btn');
+            const title = document.getElementById('title');
+            const subtitle = document.getElementById('subtitle');
+            const pageTitle = document.getElementById('page-title');
+            const introText = document.getElementById('intro-text');
+            const overviewTitle = document.getElementById('overview-title');
+            const overviewText = document.getElementById('overview-text');
+            const pregnantPlansTitle = document.getElementById('pregnant-plans-title');
+            const pregnantPlansList = document.getElementById('pregnant-plans-list');
+            const childrenPlansTitle = document.getElementById('children-plans-title');
+            const childrenPlansList = document.getElementById('children-plans-list');
+
+            if (langBtn.innerHTML === "ಕನ್ನಡ / English") {
+                langBtn.innerHTML = "English / ಕನ್ನಡ";
+                title.innerHTML = "ಮಹಿಳಾ ಮತ್ತು ಮಕ್ಕಳ ಅಭಿವೃದ್ಧಿ ಇಲಾಖೆ";
+                subtitle.innerHTML = "ಕರ್ನಾಟಕ ಸರ್ಕಾರ";
+                pageTitle.innerHTML = "ಆರೋಗ್ಯ ಮತ್ತು ಪೋಷಣೆ";
+                introText.innerHTML = "ಹಾಗಾಗಿ ಗರ್ಭಿಣಿ ಮಹಿಳೆಯರು ಮತ್ತು ಮಕ್ಕಳಿಗಾಗಿ ಪೋಷಣಾ ಯೋಜನೆಗಳು ಮತ್ತು ಆರೋಗ್ಯ ಉಪಕ್ರಮಗಳ ಬಗ್ಗೆ ತಿಳಿದುಕೊಳ್ಳಿ.";
+
+                overviewTitle.innerHTML = "ಅದೃಷ್ಟಪಾಲನೆ";
+                overviewText.innerHTML = "ನಮ್ಮ ಧ್ಯೇಯವು ಗರ್ಭಿಣಿ ಮಹಿಳೆಯರು ಮತ್ತು ಮಕ್ಕಳ ಆರೋಗ್ಯ ಮತ್ತು ಪೋಷಣೆಯನ್ನು ವಿವಿಧ ಸರ್ಕಾರದ ಯೋಜನೆಗಳು ಮತ್ತು ಉಪಕ್ರಮಗಳ ಮೂಲಕ ಖಚಿತಪಡಿಸುವುದಾಗಿದೆ.";
+
+                pregnantPlansTitle.innerHTML = "ಗರ್ಭಿಣಿ ಮಹಿಳೆಯರಿಗಾಗಿ ಆರೋಗ್ಯ ಯೋಜನೆಗಳು";
+                pregnantPlansList.innerHTML = "<li>ಐರನ್ ಮತ್ತು ಫೋಲಿಕ್ ಆಮ್ಲ ಹಂತಗಳು</li><li>ನಿಯಮಿತ ಆರೋಗ್ಯ ತಪಾಸಣೆಗಳು</li><li>ಮಾತೃ ಆರೋಗ್ಯ ಶಿಕ್ಷಣ</li>";
+
+                childrenPlansTitle.innerHTML = "ಮಕ್ಕಳಿಗಾಗಿ ಪೋಷಣಾ ಯೋಜನೆಗಳು";
+                childrenPlansList.innerHTML = "<li>ಮಕ್ಕಳ ಬೆಳವಣಿಗೆಗಾಗಿ ಸಮತೋಲಿತ ಆಹಾರ</li><li>ಇಮ್ಯುನೈಸೇಶನ್ ಮತ್ತು ಆರೋಗ್ಯ ಟ್ರ್ಯಾಕಿಂಗ್</li><li>ನಿರ್ಬಂಧಿತ ತಾಯಿ ಹಾಲು ನೀಡುವ ಜಾಗೃತಿ</li>";
+            } else {
+                langBtn.innerHTML = "ಕನ್ನಡ / English";
+                title.innerHTML = "Department of Women and Child Development";
+                subtitle.innerHTML = "Government of Karnataka";
+                pageTitle.innerHTML = "Health & Nutrition";
+                introText.innerHTML = "Learn about nutritional plans and health initiatives for pregnant women and children.";
+
+                overviewTitle.innerHTML = "Overview";
+                overviewText.innerHTML = "Our mission is to ensure the health and nutrition of pregnant women and children through various government programs and initiatives.";
+
+                pregnantPlansTitle.innerHTML = "Health Plans for Pregnant Women";
+                pregnantPlansList.innerHTML = "<li>Iron and Folic Acid Supplementation</li><li>Regular Health Checkups</li><li>Maternal Health Education</li>";
+
+                childrenPlansTitle.innerHTML = "Nutrition Plans for Children";
+                childrenPlansList.innerHTML = "<li>Balanced Diet for Child Growth</li><li>Immunization and Health Tracking</li><li>Exclusive Breastfeeding Awareness</li>";
+            }
+        }
+    </script>
+
+</body>
+</html>

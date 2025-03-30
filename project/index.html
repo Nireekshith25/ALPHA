@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALPHA - Anganwadi Live Platform</title>
+    <style>
+        #login-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .language-options a {
+            text-decoration: none;
+            color: #007BFF;
+            margin-right: 10px;
+        }
+
+        form {
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"],
+        input[type="reset"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            margin-top: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        #captcha {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; height: 100vh; display: flex; justify-content: center; align-items: center; background-color: #f4f4f4;">
+    <div id="login-container">
+        <nav>
+            <img src="../image1/k_1.png" alt="Karnataka State Logo" style="width: 100px; height: auto; margin-bottom: 20px;">
+            <div class="language-options">
+                <a href="#" onclick="setLanguage('kannada')">ಕನ್ನಡ</a>
+                <a href="#" onclick="setLanguage('english')">English</a>
+            </div>
+        </nav>
+        <h2>ವಿಭಾಗ ಲಾಗಿನ್</h2>
+        <form id="loginForm" action="login.php" method="post">
+            <label for="username">ಬಳಕೆದಾರ ಹೆಸರು:</label><br>
+            <input type="text" id="username" name="username" placeholder="ಬಳಕೆದಾರ ಹೆಸರು" required><br>
+            <label for="password">ಪಾಸ್‌ವರ್ಡ್:</label><br>
+            <input type="password" id="password" name="password" placeholder="ಪಾಸ್‌ವರ್ಡ್" required><br>
+            <label for="captcha">ಕ್ಯಾಪ್ಚಾ:</label><br>
+            <div id="captcha"></div>
+            <input type="text" id="captchaInput" name="captcha" placeholder="ಕ್ಯಾಪ್ಚಾ" required><br>
+            <input type="submit" value="ಲಾಗಿನ್">
+            <input type="reset" value="ಮರುಹೊಂದಿಸು">
+        </form>
+        <p><a href="#" onclick="forgotPassword()">ಪಾಸ್‌ವರ್ಡ್ ಮರೆತಿರುವಿರಾ?</a></p>
+    </div>
+
+    <script>
+        function setLanguage(language) {
+            console.log('Language set to ' + language);
+        }
+
+        function forgotPassword() {
+            alert('ಪಾಸ್‌ವರ್ಡ್ ಪುನಃ ಹೊಂದಿಸುವ ಮಾರ್ಗದ ಸೂಚನೆಗಳು ನಿಮ್ಮ ಇಮೇಲ್‌ಗೆ ಕಳುಹಿಸಲಾಗುತ್ತವೆ.');
+        }
+
+        function generateCaptcha() {
+            const characters = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789';
+            const captchaLength = 6;
+            let captcha = '';
+            for (let i = 0; i < captchaLength; i++) {
+                const randomIndex = Math.floor(Math.random() * characters.length);
+                captcha += characters[randomIndex];
+            }
+            return captcha;
+        }
+
+        function renderCaptcha() {
+            const captcha = generateCaptcha();
+            const captchaElement = document.getElementById('captcha');
+            captchaElement.textContent = captcha;
+            document.getElementById('hiddenCaptcha').value = captcha;
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            const captchaInput = document.getElementById('captchaInput').value;
+            const captcha = document.getElementById('hiddenCaptcha').value;
+            if (captchaInput !== captcha) {
+                alert('Invalid CAPTCHA');
+                event.preventDefault();
+                renderCaptcha();
+            }
+        });
+
+        renderCaptcha();
+    </script>
+</body>
+</html>
